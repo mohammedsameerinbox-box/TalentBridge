@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}AI Recommended Jobs | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h1 class="fw-bold">
+🤖 AI Recommended Jobs
+</h1>
+
+<p class="text-muted">
+Jobs recommended based on your profile and skills.
+</p>
+
+</div>
+
+{% if recommended %}
+
+<div class="row">
+
+{% for job, match_score in recommended %}
+
+<div class="col-lg-6 mb-4">
+
+<div class="card shadow p-4 h-100">
+
+<div class="d-flex justify-content-between">
+
+<h4>{{ job[2] }}</h4>
+
+<span class="badge bg-success">
+
+⭐ {{ match_score }}% Match
+
+</span>
+
+</div>
+
+<hr>
+
+<p><strong>Company:</strong> {{ job[1] }}</p>
+
+<p><strong>Location:</strong> {{ job[3] }}</p>
+
+<p><strong>Salary:</strong> {{ job[4] }}</p>
+
+<p><strong>Experience:</strong> {{ job[6] }}</p>
+
+<p><strong>Required Skills:</strong></p>
+
+<p class="text-primary">
+
+{{ job[8] }}
+
+</p>
+
+<a href="/job/{{ job[0] }}"
+class="btn btn-primary rounded-pill">
+
+View Job
+
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="alert alert-warning text-center">
+
+No recommended jobs found.
+
+</div>
+
+{% endif %}
+
+</div>
+
+</section>
+
+{% endblock %}

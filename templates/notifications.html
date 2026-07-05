@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Notifications | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+<h2 class="fw-bold mb-4">
+    <i class="fa-solid fa-bell text-warning"></i>
+    Notifications
+</h2>
+
+{% if notifications %}
+
+    {% for notification in notifications %}
+
+    <div class="card mb-3 shadow-sm">
+
+        <div class="card-body">
+
+            <p class="mb-1">{{ notification[2] }}</p>
+
+            <small class="text-muted">
+                {{ notification[4] }}
+            </small>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="alert alert-info">
+    No notifications yet.
+</div>
+
+{% endif %}
+
+</section>
+
+{% endblock %}

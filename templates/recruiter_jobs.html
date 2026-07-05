@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Jobs | TalentBridge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="dashboard">
+
+<h1>Manage Jobs</h1>
+
+{% for job in jobs %}
+
+<div class="card">
+
+<h2>{{ job[2] }}</h2>
+
+<p><strong>Company:</strong> {{ job[1] }}</p>
+
+<p><strong>Location:</strong> {{ job[3] }}</p>
+
+<p><strong>Salary:</strong> {{ job[4] }}</p>
+
+<a href="/job/{{ job[0] }}">
+    <button>View</button>
+</a>
+
+<a href="/edit-job/{{ job[0] }}">
+    <button>Edit</button>
+</a>
+
+<a href="/view-applicants/{{ job[0] }}">
+    <button>Applicants</button>
+</a>
+
+<a href="/delete-job/{{ job[0] }}">
+    <button>Delete</button>
+</a>
+
+</div>
+
+<br>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

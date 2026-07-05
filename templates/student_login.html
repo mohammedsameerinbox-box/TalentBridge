@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Student Login | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-5 col-md-7">
+
+<div class="auth-card">
+
+<div class="text-center mb-4">
+
+<i class="fa-solid fa-user-graduate fa-4x text-primary mb-3"></i>
+
+<h2>Student Login</h2>
+
+<p class="text-muted">
+Welcome back! Sign in to continue.
+</p>
+
+</div>
+
+<form action="/student/login" method="POST">
+
+<div class="mb-3">
+
+<label class="form-label">
+Email Address
+</label>
+
+<input
+type="email"
+name="email"
+class="form-control"
+placeholder="Enter your email"
+required>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+Password
+</label>
+
+<input
+type="password"
+name="password"
+class="form-control"
+placeholder="Enter your password"
+required>
+
+</div>
+
+<button type="submit" class="btn btn-primary w-100">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+Login
+
+</button>
+
+</form>
+
+<hr>
+
+<div class="text-center">
+
+<p class="mb-0">
+
+Don't have an account?
+
+<a href="/student/register" class="fw-bold">
+
+Register Here
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

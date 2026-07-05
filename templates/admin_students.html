@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Students | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<div>
+
+<h2 class="fw-bold">
+👨‍🎓 Manage Students
+</h2>
+
+<p class="text-muted">
+View and manage all registered students.
+</p>
+
+</div>
+
+<a href="/admin/dashboard" class="btn btn-outline-primary rounded-pill">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back to Dashboard
+
+</a>
+
+</div>
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<div class="table-responsive">
+
+<table class="table table-hover align-middle">
+
+<thead class="table-primary">
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Phone</th>
+
+<th>College</th>
+
+<th>Degree</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for student in students %}
+
+<tr>
+
+<td>{{ student[0] }}</td>
+
+<td>{{ student[1] }}</td>
+
+<td>{{ student[2] }}</td>
+
+<td>{{ student[3] }}</td>
+
+<td>{{ student[5] or "Not Updated" }}</td>
+
+<td>{{ student[6] or "Not Updated" }}</td>
+
+<td>
+
+<a href="/admin/delete-student/{{ student[0] }}"
+class="btn btn-danger btn-sm rounded-pill"
+onclick="return confirm('Are you sure you want to delete this student?');">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

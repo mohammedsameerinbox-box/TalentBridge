@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}{{ job[2] }} | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="card job-card p-5">
+
+<div class="d-flex justify-content-between align-items-start flex-wrap">
+
+<div class="d-flex">
+
+<div class="company-logo me-4">
+
+<i class="fa-solid fa-building"></i>
+
+</div>
+
+<div>
+
+<h2 class="fw-bold mb-2">
+{{ job[2] }}
+</h2>
+
+<h5 class="text-primary">
+{{ job[1] }}
+</h5>
+
+</div>
+
+</div>
+
+<div class="salary-badge">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+{{ job[4] }}
+
+</div>
+
+</div>
+
+<div class="mt-4 d-flex flex-wrap gap-2">
+
+<span class="job-chip">
+<i class="fa-solid fa-location-dot"></i>
+{{ job[3] }}
+</span>
+
+<span class="job-chip internship">
+<i class="fa-solid fa-briefcase"></i>
+{{ job[5] }}
+</span>
+
+<span class="job-chip">
+<i class="fa-solid fa-user-clock"></i>
+{{ job[6] }}
+</span>
+
+</div>
+
+<hr class="my-4">
+
+<h4>Description</h4>
+
+<p class="text-muted">
+
+{{ job[7] }}
+
+</p>
+
+<h4 class="mt-4">Required Skills</h4>
+
+<p class="text-muted">
+
+{{ job[8] }}
+
+</p>
+
+<div class="d-flex gap-3 mt-5">
+
+<form action="/apply/{{ job[0] }}" method="POST">
+
+<button class="btn btn-primary btn-lg rounded-pill">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Apply Now
+
+</button>
+
+</form>
+
+<form action="/save-job/{{ job[0] }}" method="POST">
+
+<button class="btn btn-outline-primary btn-lg rounded-pill">
+
+<i class="fa-regular fa-bookmark"></i>
+
+Save Job
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

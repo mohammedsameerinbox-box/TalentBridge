@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Jobs | TalentBridge</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <h1>❤️ Saved Jobs</h1>
+
+    {% for job in jobs %}
+
+    <div class="card">
+
+        <h2>{{ job[2] }}</h2>
+
+        <p><strong>Company:</strong> {{ job[1] }}</p>
+
+        <p><strong>Location:</strong> {{ job[3] }}</p>
+
+        <p><strong>Salary:</strong> {{ job[4] }}</p>
+
+        <a href="/job/{{ job[0] }}">
+            <button>View Details</button>
+        </a>
+
+    </div>
+
+    <br>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Jobs | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<div>
+
+<h2 class="fw-bold">
+💼 Manage Jobs
+</h2>
+
+<p class="text-muted">
+View and manage all jobs posted on TalentBridge.
+</p>
+
+</div>
+
+<a href="/admin/dashboard" class="btn btn-outline-primary rounded-pill">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back to Dashboard
+
+</a>
+
+</div>
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<div class="table-responsive">
+
+<table class="table table-hover align-middle">
+
+<thead class="table-primary">
+
+<tr>
+
+<th>ID</th>
+
+<th>Company</th>
+
+<th>Job Title</th>
+
+<th>Location</th>
+
+<th>Salary</th>
+
+<th>Job Type</th>
+
+<th>Experience</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for job in jobs %}
+
+<tr>
+
+<td>{{ job[0] }}</td>
+
+<td>{{ job[1] }}</td>
+
+<td>{{ job[2] }}</td>
+
+<td>{{ job[3] }}</td>
+
+<td>{{ job[4] }}</td>
+
+<td>
+
+<span class="badge bg-primary">
+
+{{ job[5] }}
+
+</span>
+
+</td>
+
+<td>{{ job[6] }}</td>
+
+<td>
+
+<div class="d-flex gap-2">
+
+<a href="/job/{{ job[0] }}"
+class="btn btn-info btn-sm rounded-pill">
+
+<i class="fa-solid fa-eye"></i>
+
+View
+
+</a>
+
+<a href="/admin/delete-job/{{ job[0] }}"
+class="btn btn-danger btn-sm rounded-pill"
+onclick="return confirm('Are you sure you want to delete this job?');">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete
+
+</a>
+
+</div>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

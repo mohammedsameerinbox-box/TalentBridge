@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}Recruiter Dashboard | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="mb-5">
+
+<h2 class="fw-bold">
+Welcome, {{ recruiter_name }} 👋
+</h2>
+
+<p class="text-muted">
+Company: <strong>{{ company_name }}</strong>
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card dashboard-card text-center p-4">
+
+<i class="fa-solid fa-briefcase fa-2x text-primary mb-3"></i>
+
+<h3>{{ total_jobs }}</h3>
+
+<p class="mb-0">Jobs Posted</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card dashboard-card text-center p-4">
+
+<i class="fa-solid fa-users fa-2x text-success mb-3"></i>
+
+<h3>{{ total_applicants }}</h3>
+
+<p class="mb-0">Applicants</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card dashboard-card text-center p-4">
+
+<i class="fa-solid fa-circle-check fa-2x text-info mb-3"></i>
+
+<h3>{{ shortlisted }}</h3>
+
+<p class="mb-0">Shortlisted</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card dashboard-card text-center p-4">
+
+<i class="fa-solid fa-circle-xmark fa-2x text-danger mb-3"></i>
+
+<h3>{{ rejected }}</h3>
+
+<p class="mb-0">Rejected</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card shadow mt-5">
+
+    <div class="card-body">
+
+        <h3 class="mb-4">
+            📈 Recruitment Summary
+        </h3>
+
+        <div class="row text-center">
+
+            <div class="col-md-4">
+
+                <h2 class="text-primary">
+                    {{ total_applicants }}
+                </h2>
+
+                <p>Total Applications</p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h2 class="text-success">
+                    {{ shortlisted }}
+                </h2>
+
+                <p>Selected for Next Round</p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h2 class="text-danger">
+                    {{ rejected }}
+                </h2>
+
+                <p>Rejected Candidates</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="mt-5 d-flex flex-wrap gap-3">
+
+<a href="/post-job" class="btn btn-primary btn-lg rounded-pill">
+
+<i class="fa-solid fa-plus"></i>
+
+Post New Job
+
+</a>
+
+<a href="/recruiter/jobs" class="btn btn-outline-primary btn-lg rounded-pill">
+
+<i class="fa-solid fa-list"></i>
+
+Manage Jobs
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

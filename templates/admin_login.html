@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-5 col-md-7">
+
+<div class="auth-card">
+
+<div class="text-center mb-4">
+
+<i class="fa-solid fa-user-shield fa-4x text-primary mb-3"></i>
+
+<h2>Administrator Login</h2>
+
+<p class="text-muted">
+Sign in to manage TalentBridge.
+</p>
+
+</div>
+
+<form action="/admin/login" method="POST">
+
+<div class="mb-3">
+
+<label class="form-label">
+Admin Name
+</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+<i class="fa-solid fa-user-shield"></i>
+</span>
+
+<input
+type="text"
+name="username"
+class="form-control"
+placeholder="Enter admin username"
+required>
+
+</div>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+Password
+</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+<i class="fa-solid fa-lock"></i>
+</span>
+
+<input
+type="password"
+name="password"
+class="form-control"
+placeholder="Enter password"
+required>
+
+</div>
+
+</div>
+
+<button type="submit" class="btn btn-primary w-100">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+Login
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

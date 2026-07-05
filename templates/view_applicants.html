@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Applicants | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h1 class="fw-bold">Applicants</h1>
+
+<p class="text-muted">
+Manage candidates who applied for this job.
+</p>
+
+</div>
+
+<div class="row">
+
+{% if applicants %}
+
+{% for applicant in applicants %}
+
+<div class="col-lg-6 mb-4">
+
+<div class="card applicant-card p-4 h-100">
+
+<div class="d-flex align-items-center">
+
+<div class="company-logo me-3">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+</div>
+
+<div>
+
+<h4 class="fw-bold mb-1">
+{{ applicant[1] }}
+</h4>
+
+<p class="text-primary mb-0">
+{{ applicant[2] }}
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p><strong>📞 Phone:</strong> {{ applicant[3] }}</p>
+
+<p><strong>🎓 College:</strong> {{ applicant[5] }}</p>
+
+<p><strong>📚 Degree:</strong> {{ applicant[6] }}</p>
+
+<p>
+    <strong>Status:</strong>
+
+    {% if applicant[12] == "Applied" %}
+        <span class="badge bg-warning text-dark">Applied</span>
+
+    {% elif applicant[12] == "Shortlisted" %}
+        <span class="badge bg-success">Shortlisted</span>
+
+    {% elif applicant[12] == "Rejected" %}
+        <span class="badge bg-danger">Rejected</span>
+
+    {% else %}
+        <span class="badge bg-secondary">Unknown</span>
+    {% endif %}
+</p>
+
+<div class="mt-4 d-flex flex-wrap gap-2">
+
+{% if applicant[10] %}
+
+<a href="{{ url_for('static', filename='uploads/resumes/' + applicant[10]) }}"
+   target="_blank"
+   class="btn btn-primary rounded-pill">
+
+    <i class="fa-solid fa-file-pdf"></i>
+    View Resume
+
+</a>
+
+{% else %}
+
+<button class="btn btn-secondary rounded-pill" disabled>
+
+    <i class="fa-solid fa-file-circle-xmark"></i>
+
+    No Resume
+
+</button>
+
+{% endif %}
+
+{% if applicant[12] == "Applied" %}
+
+<a href="/update-application-status/{{ applicant[0] }}/{{ request.view_args['job_id'] }}/Shortlisted"
+   class="btn btn-success rounded-pill">
+
+    <i class="fa-solid fa-check"></i>
+    Shortlist
+
+</a>
+
+<a href="/update-application-status/{{ applicant[0] }}/{{ request.view_args['job_id'] }}/Rejected"
+   class="btn btn-danger rounded-pill">
+
+    <i class="fa-solid fa-xmark"></i>
+    Reject
+
+</a>
+
+{% elif applicant[12] == "Shortlisted" %}
+
+<span class="btn btn-success rounded-pill disabled">
+    <i class="fa-solid fa-check"></i>
+    Shortlisted
+</span>
+
+{% elif applicant[12] == "Rejected" %}
+
+<span class="btn btn-danger rounded-pill disabled">
+    <i class="fa-solid fa-xmark"></i>
+    Rejected
+</span>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="text-center">
+
+<h3>No applicants yet.</h3>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

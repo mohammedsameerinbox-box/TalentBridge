@@ -1,0 +1,135 @@
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold fs-3" href="/">
+            <i class="fa-solid fa-briefcase text-primary"></i>
+            TalentBridge
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+    <li class="nav-item">
+        <a class="nav-link px-3" href="/">Home</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link px-3" href="/jobs">Jobs</a>
+    </li>
+
+    {% if session.get("student_id") %}
+
+        <li class="nav-item">
+            <a class="nav-link px-3" href="/student/dashboard">
+                Dashboard
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link px-3" href="/my-applications">
+                My Applications
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link px-3" href="/saved-jobs">
+                Saved Jobs
+            </a>
+        </li>
+
+        <li class="nav-item">
+    <a class="nav-link px-3 position-relative" href="/notifications">
+
+        <i class="fa-solid fa-bell fs-5"></i>
+
+        {% if unread_notifications > 0 %}
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{ unread_notifications }}
+        </span>
+        {% endif %}
+
+    </a>
+</li>
+
+        <li class="nav-item ms-lg-3">
+            <a class="btn btn-danger rounded-pill px-4"
+               href="/student/logout">
+                Logout
+            </a>
+        </li>
+
+    {% elif session.get("recruiter_id") %}
+
+        <li class="nav-item">
+            <a class="nav-link px-3" href="/recruiter/dashboard">
+                Dashboard
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link px-3" href="/recruiter/jobs">
+                Manage Jobs
+            </a>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+            <a class="btn btn-danger rounded-pill px-4"
+               href="/recruiter/logout">
+                Logout
+            </a>
+        </li>
+
+    {% elif session.get("admin_id") %}
+
+        <li class="nav-item">
+            <a class="nav-link px-3" href="/admin/dashboard">
+                Dashboard
+            </a>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+            <a class="btn btn-danger rounded-pill px-4"
+               href="/admin/logout">
+                Logout
+            </a>
+        </li>
+
+    {% else %}
+
+        <li class="nav-item">
+            <a class="nav-link px-3" href="/student/login">
+                Student
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link px-3" href="/recruiter/login">
+                Recruiter
+            </a>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+            <a class="btn btn-primary rounded-pill px-4"
+               href="/admin/login">
+                Admin
+            </a>
+        </li>
+
+    {% endif %}
+
+</ul>
+
+        </div>
+
+    </div>
+</nav>

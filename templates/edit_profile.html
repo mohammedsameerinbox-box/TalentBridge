@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile | TalentBridge</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="register-container">
+
+    <h1>Edit Profile</h1>
+
+    <form action="/student/update-profile" method="POST">
+
+        <input
+            type="text"
+            name="full_name"
+            value="{{ student[1] }}"
+            required
+        >
+
+        <input
+            type="email"
+            name="email"
+            value="{{ student[2] }}"
+            required
+        >
+
+        <input
+            type="text"
+            name="phone"
+            value="{{ student[3] }}"
+            required
+        >
+
+        <input
+            type="text"
+            name="college"
+            value="{{ student[5] or '' }}"
+            placeholder="College"
+        >
+
+        <input
+            type="text"
+            name="degree"
+            value="{{ student[6] or '' }}"
+            placeholder="Degree"
+        >
+
+        <button type="submit">
+            Update Profile
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

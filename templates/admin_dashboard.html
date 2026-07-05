@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<!-- Welcome -->
+
+<div class="mb-5">
+
+<h2 class="fw-bold">
+
+Welcome, {{ admin_username }} 👋
+
+</h2>
+
+<p class="text-muted">
+
+Manage the complete TalentBridge platform from one dashboard.
+
+</p>
+
+</div>
+
+<!-- Statistics -->
+
+<div class="row g-4">
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card dashboard-card text-center p-4">
+
+<i class="fa-solid fa-user-graduate fa-2x text-primary mb-3"></i>
+
+<h3>{{ total_students }}</h3>
+
+<p>Total Students</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card dashboard-card text-center p-4">
+
+<i class="fa-solid fa-building fa-2x text-success mb-3"></i>
+
+<h3>{{ total_recruiters }}</h3>
+
+<p>Total Recruiters</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card dashboard-card text-center p-4">
+
+<i class="fa-solid fa-briefcase fa-2x text-warning mb-3"></i>
+
+<h3>{{ total_jobs }}</h3>
+
+<p>Total Jobs</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6 col-lg-3">
+
+<div class="card dashboard-card text-center p-4">
+
+<i class="fa-solid fa-file-lines fa-2x text-danger mb-3"></i>
+
+<h3>{{ total_applications }}</h3>
+
+<p>Total Applications</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Quick Actions -->
+
+<div class="card shadow mt-5">
+
+<div class="card-body">
+
+<h4 class="mb-4">
+
+⚡ Quick Actions
+
+</h4>
+
+<div class="d-flex flex-wrap gap-3">
+
+<a href="/admin/students" class="btn btn-primary rounded-pill">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+Manage Students
+
+</a>
+
+<a href="/admin/recruiters" class="btn btn-success rounded-pill">
+
+<i class="fa-solid fa-building"></i>
+
+Manage Recruiters
+
+</a>
+
+<a href="/admin/jobs" class="btn btn-warning rounded-pill">
+
+<i class="fa-solid fa-briefcase"></i>
+
+Manage Jobs
+
+</a>
+
+<a href="/admin/logout" class="btn btn-danger rounded-pill">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

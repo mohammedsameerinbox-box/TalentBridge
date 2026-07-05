@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Job | TalentBridge</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="register-container">
+
+    <h1>Post a New Job</h1>
+
+    <form action="/post-job" method="POST">
+
+        <input type="text" name="company_name" placeholder="Company Name" required>
+
+        <input type="text" name="job_title" placeholder="Job Title" required>
+
+        <input type="text" name="location" placeholder="Location" required>
+
+        <input type="text" name="salary" placeholder="Salary" required>
+
+        <input type="text" name="job_type" placeholder="Job Type (Full Time / Internship)" required>
+
+        <input type="text" name="experience" placeholder="Experience" required>
+
+        <textarea name="description" placeholder="Job Description" rows="6" required></textarea>
+
+        <textarea name="skills" placeholder="Required Skills" rows="4" required></textarea>
+
+        <button type="submit">Post Job</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

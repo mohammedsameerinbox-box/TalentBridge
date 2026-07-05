@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}My Applications | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2 class="fw-bold">My Applications</h2>
+
+<p class="text-muted">
+Track all the jobs you've applied for.
+</p>
+
+</div>
+
+{% if jobs %}
+
+<div class="row">
+
+{% for job in jobs %}
+
+<div class="col-lg-6 mb-4">
+
+<div class="card job-card p-4 h-100">
+
+<div class="d-flex justify-content-between align-items-start">
+
+<div>
+
+<h4 class="fw-bold">
+{{ job[2] }}
+</h4>
+
+<h6 class="text-primary">
+{{ job[1] }}
+</h6>
+
+</div>
+
+<div class="salary-badge">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+{{ job[4] }}
+
+</div>
+
+</div>
+
+<div class="mt-3">
+
+<p>
+<i class="fa-solid fa-location-dot text-danger"></i>
+{{ job[3] }}
+</p>
+
+<p>
+<strong>Applied On:</strong>
+{{ job[10] }}
+</p>
+
+<p>
+<strong>Status:</strong>
+
+{% if job[9] == "Applied" %}
+<span class="badge bg-warning text-dark">Applied</span>
+
+{% elif job[9] == "Shortlisted" %}
+<span class="badge bg-success">Shortlisted</span>
+
+{% elif job[9] == "Rejected" %}
+<span class="badge bg-danger">Rejected</span>
+
+{% endif %}
+
+</p>
+
+</div>
+
+<a href="/job/{{ job[0] }}"
+class="btn btn-primary rounded-pill mt-3">
+
+<i class="fa-solid fa-eye"></i>
+
+View Job
+
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="text-center">
+
+<h3>No applications found.</h3>
+
+<p class="text-muted">
+Start applying for jobs to see them here.
+</p>
+
+<a href="/jobs" class="btn btn-primary rounded-pill">
+
+Browse Jobs
+
+</a>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</section>
+
+{% endblock %}

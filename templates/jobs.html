@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}Jobs | TalentBridge{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h1 class="fw-bold">
+Find Your Dream Job
+</h1>
+
+<p class="text-muted">
+Search jobs from top companies across India.
+</p>
+
+</div>
+
+<form action="/jobs" method="GET">
+
+<div class="row g-3 mb-5">
+
+<div class="col-md-5">
+
+<input
+type="text"
+class="form-control form-control-lg"
+name="search"
+placeholder="Search Company or Job Title"
+value="{{ request.args.get('search','') }}">
+
+</div>
+
+<div class="col-md-5">
+
+<input
+type="text"
+class="form-control form-control-lg"
+name="location"
+placeholder="Location"
+value="{{ request.args.get('location','') }}">
+
+</div>
+
+<div class="col-md-2 d-grid">
+
+<button class="btn btn-primary btn-lg">
+
+<i class="fa-solid fa-search"></i>
+
+Search
+
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+<div class="row">
+
+{% for job in jobs %}
+
+<div class="col-lg-6 mb-4">
+
+<div class="card job-card h-100 p-4">
+
+<div class="d-flex justify-content-between align-items-start">
+
+    <div class="d-flex">
+
+        <div class="company-logo me-3">
+
+            <i class="fa-solid fa-building"></i>
+
+        </div>
+
+        <div>
+
+            <h4 class="fw-bold mb-1">
+                {{ job[2] }}
+            </h4>
+
+            <p class="company-name mb-0">
+                {{ job[1] }}
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="salary-badge">
+
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        {{ job[4] }}
+
+    </div>
+
+</div>
+
+<hr>
+
+<div class="d-flex flex-wrap gap-2 mt-3">
+
+    <span class="job-chip">
+        <i class="fa-solid fa-location-dot"></i>
+        {{ job[3] }}
+    </span>
+
+    <span class="job-chip internship">
+        <i class="fa-solid fa-briefcase"></i>
+        Full Time
+    </span>
+
+</div>
+
+<div class="d-flex justify-content-between align-items-center mt-4">
+
+<a href="/job/{{ job[0] }}"
+   class="btn btn-outline-primary rounded-pill">
+
+    <i class="fa-solid fa-eye"></i>
+
+    View Details
+
+</a>
+
+<form action="/save-job/{{ job[0] }}" method="POST">
+<button class="btn btn-primary rounded-pill">
+
+    <i class="fa-regular fa-bookmark"></i>
+
+    Save
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
