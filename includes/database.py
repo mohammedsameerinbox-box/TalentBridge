@@ -1,12 +1,11 @@
-import mysql.connector
+import pymysql
 
-connection = mysql.connector.connect(
+connection = pymysql.connect(
     host="localhost",
     user="root",
     password="root123",
-    database="TalentBridge"
+    database="TalentBridge",
+    cursorclass=pymysql.cursors.Cursor
 )
 
 cursor = connection.cursor()
-
-print("Database Connected Successfully!")
