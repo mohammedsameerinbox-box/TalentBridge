@@ -6,55 +6,51 @@
     <title>Edit Profile | TalentBridge</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
 </head>
 <body>
 
 <div class="register-container">
 
-    <h1>Edit Profile</h1>
+    <div class="form-card">
 
-    <form action="/student/update-profile" method="POST">
+        <h1>Edit Profile</h1>
+        <p>Keep your profile up to date.</p>
 
-        <input
-            type="text"
-            name="full_name"
-            value="{{ student[1] }}"
-            required
-        >
+        <form action="/student/update-profile" method="POST">
 
-        <input
-            type="email"
-            name="email"
-            value="{{ student[2] }}"
-            required
-        >
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="full_name" value="{{ student[1] }}" required>
+            </div>
 
-        <input
-            type="text"
-            name="phone"
-            value="{{ student[3] }}"
-            required
-        >
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" value="{{ student[2] }}" readonly>
+            </div>
 
-        <input
-            type="text"
-            name="college"
-            value="{{ student[5] or '' }}"
-            placeholder="College"
-        >
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" name="phone" value="{{ student[3] }}" required>
+            </div>
 
-        <input
-            type="text"
-            name="degree"
-            value="{{ student[6] or '' }}"
-            placeholder="Degree"
-        >
+            <div class="form-group">
+                <label>College Name</label>
+                <input type="text" name="college" value="{{ student[5] or '' }}">
+            </div>
 
-        <button type="submit">
-            Update Profile
-        </button>
+            <div class="form-group">
+                <label>Degree</label>
+                <input type="text" name="degree" value="{{ student[6] or '' }}">
+            </div>
 
-    </form>
+            <button type="submit" class="btn">
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
 
 </div>
 

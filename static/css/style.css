@@ -164,7 +164,7 @@ h1,h2,h3,h4,h5{
 ====================================== */
 
 .hero{
-    padding:120px 0;
+    padding:170px 0 120px;
     background:linear-gradient(135deg,#eff6ff,#ffffff);
     overflow:hidden;
 }
@@ -472,4 +472,168 @@ section{
 
 .auth-card hr{
     margin:30px 0;
+}
+/* ===== Edit Profile ===== */
+
+.form-card{
+    background:#ffffff;
+    padding:35px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    max-width:600px;
+    width:100%;
+    margin:auto;
+}
+body{
+    padding-top:85px;
+}
+/* ==========================
+   HOME PAGE FINAL FIX
+========================== */
+
+body{
+    padding-top:0;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:linear-gradient(135deg,#eff6ff,#ffffff);
+    padding:110px 0 80px;
+}
+
+.hero .container{
+    max-width:1250px;
+}
+
+.hero h1{
+    font-size:60px;
+    line-height:1.2;
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:35px;
+    max-width:600px;
+}
+
+.hero-image{
+    width:100%;
+    max-width:560px;
+    display:block;
+    margin:auto;
+}
+
+.hero .btn{
+    padding:15px 34px;
+    font-size:17px;
+    margin-right:15px;
+}
+
+section{
+    padding:100px 0;
+}
+
+.card{
+    border-radius:20px;
+    padding:10px;
+}
+/* ==========================================
+   TALENTBRIDGE HOME V3
+========================================== */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
+    padding:100px 0;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:#dbeafe;
+    color:#2563eb;
+    padding:10px 20px;
+    border-radius:50px;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+.hero-title{
+    font-size:58px;
+    font-weight:800;
+    line-height:1.2;
+    margin-bottom:25px;
+}
+
+.hero-title span{
+    color:#2563eb;
+}
+
+.hero-description{
+    font-size:19px;
+    color:#6b7280;
+    max-width:560px;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-bottom:45px;
+    flex-wrap:wrap;
+}
+
+.hero-stats{
+    display:flex;
+    gap:45px;
+    flex-wrap:wrap;
+}
+
+.hero-stats h3{
+    color:#2563eb;
+    font-size:34px;
+    margin-bottom:5px;
+}
+
+.hero-stats p{
+    color:#6b7280;
+}
+
+.hero-image{
+    width:100%;
+    max-width:560px;
+    border-radius:24px;
+    box-shadow:0 20px 50px rgba(37,99,235,.18);
+}
+/* Center Hero Statistics */
+
+.hero-stats{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    margin-top:40px;
+    text-align:center;
+    flex-wrap:wrap;
+}
+
+.hero-stats div{
+    min-width:140px;
+}
+
+.hero-stats h3{
+    font-size:36px;
+    font-weight:700;
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.hero-stats p{
+    font-size:16px;
+    color:#6b7280;
+    margin:0;
 }
