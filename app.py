@@ -7,7 +7,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.secret_key = "TalentBridgeSecretKey123"
-app.secret_key = "something_secure"
+import os
+app.secret_key = os.environ.get("SECRET_KEY", "something_secure")
 app.config["UPLOAD_FOLDER"] = "static/uploads"
 
 @app.context_processor
@@ -1104,5 +1105,7 @@ def notifications():
     )
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8080))
+    )
