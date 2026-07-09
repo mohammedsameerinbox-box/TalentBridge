@@ -102,7 +102,7 @@ Manage candidates who applied for this job.
 
 {% if applicant[12] == "Applied" %}
 
-<a href="/update-application-status/{{ applicant[0] }}/{{ request.view_args['job_id'] }}/Shortlisted"
+<a href="/update-application-status/{{ applicant[0] }}/{{ job_id }}/Shortlisted"
    class="btn btn-success rounded-pill">
 
     <i class="fa-solid fa-check"></i>
@@ -110,7 +110,7 @@ Manage candidates who applied for this job.
 
 </a>
 
-<a href="/update-application-status/{{ applicant[0] }}/{{ request.view_args['job_id'] }}/Rejected"
+<a href="/update-application-status/{{ applicant[0] }}/{{job_id }}/Rejected"
    class="btn btn-danger rounded-pill">
 
     <i class="fa-solid fa-xmark"></i>

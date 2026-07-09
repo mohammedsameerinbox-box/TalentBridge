@@ -1,50 +1,114 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Manage Jobs | TalentBridge</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
 
-<div class="dashboard">
+{% block title %}Manage Jobs | TalentBridge{% endblock %}
 
-<h1>Manage Jobs</h1>
+{% block content %}
 
-{% for job in jobs %}
+<section class="py-5">
 
-<div class="card">
+<div class="container">
 
-<h2>{{ job[2] }}</h2>
+    <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap">
 
-<p><strong>Company:</strong> {{ job[1] }}</p>
+        <div>
+            <h1 class="fw-bold">Manage Jobs</h1>
+            <p class="text-muted">
+                Manage, edit and monitor your posted jobs.
+            </p>
+        </div>
 
-<p><strong>Location:</strong> {{ job[3] }}</p>
+        <a href="/post-job" class="btn btn-primary btn-lg rounded-pill">
+            <i class="fa-solid fa-plus"></i>
+            Post New Job
+        </a>
 
-<p><strong>Salary:</strong> {{ job[4] }}</p>
+    </div>
 
-<a href="/job/{{ job[0] }}">
-    <button>View</button>
-</a>
+    <div class="row g-4">
 
-<a href="/edit-job/{{ job[0] }}">
-    <button>Edit</button>
-</a>
+        {% for job in jobs %}
 
-<a href="/view-applicants/{{ job[0] }}">
-    <button>Applicants</button>
-</a>
+        <div class="col-lg-6">
 
-<a href="/delete-job/{{ job[0] }}">
-    <button>Delete</button>
-</a>
+            <div class="card job-card shadow-sm border-0 p-4 h-100">
+
+                <div class="d-flex align-items-start">
+
+                    <div class="company-logo me-3">
+                        <i class="fa-solid fa-briefcase fa-2x text-primary"></i>
+                    </div>
+
+                    <div class="flex-grow-1">
+
+                        <h4 class="fw-bold mb-1">
+                            {{ job[2] }}
+                        </h4>
+
+                        <p class="text-muted mb-3">
+                            {{ job[1] }}
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2">
+
+                            <span class="badge bg-light text-dark">
+                                <i class="fa-solid fa-location-dot"></i>
+                                {{ job[3] }}
+                            </span>
+
+                            <span class="badge bg-success">
+                                ₹ {{ job[4] }}
+                            </span>
+
+                            <span class="badge bg-primary">
+                                {{ job[5] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="d-grid gap-2">
+
+                    <a href="/job/{{ job[0] }}" class="btn btn-outline-primary rounded-pill">
+                        <i class="fa-solid fa-eye"></i>
+                        View Job
+                    </a>
+
+                    <a href="/edit-job/{{ job[0] }}" class="btn btn-warning rounded-pill">
+                        <i class="fa-solid fa-pen"></i>
+                        Edit Job
+                    </a>
+
+                    <a href="/view-applicants/{{ job[0] }}" class="btn btn-success rounded-pill">
+                        <i class="fa-solid fa-users"></i>
+                        View Applicants
+                    </a>
+
+                    <a href="/delete-job/{{ job[0] }}"
+                       class="btn btn-danger rounded-pill"
+                       onclick="return confirm('Delete this job?')">
+
+                        <i class="fa-solid fa-trash"></i>
+                        Delete Job
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
 
 </div>
 
-<br>
+</section>
 
-{% endfor %}
-
-</div>
-
-</body>
-</html>
+{% endblock %}

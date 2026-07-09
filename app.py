@@ -746,15 +746,11 @@ def recruiter_jobs():
     if "recruiter_id" not in session:
         return redirect(url_for("recruiter_login"))
 
-    cursor.execute(
-        """
-        SELECT *
-        FROM jobs
-        WHERE company_name = %s
-        ORDER BY created_at DESC
-        """,
-        (session["company_name"],)
-    )
+    cursor.execute("""
+SELECT *
+FROM jobs
+ORDER BY created_at DESC
+""")
 
     jobs = cursor.fetchall()
 
@@ -937,21 +933,19 @@ def view_applicants(job_id):
         return redirect(url_for("recruiter_login"))
 
     cursor.execute("""
-    SELECT students.*, applications.status
-    FROM applications
-    INNER JOIN students
-    ON applications.student_id = students.id
-    WHERE applications.job_id = %s
-""", (job_id,))
+        SELECT students.*, applications.status
+        FROM applications
+        INNER JOIN students
+        ON applications.student_id = students.id
+        WHERE applications.job_id = %s
+    """, (job_id,))
 
     applicants = cursor.fetchall()
-    print("Resume index 8:", applicants[0][8])
-    print("Resume index 10:", applicants[0][10])
-    print(applicants)
 
     return render_template(
         "view_applicants.html",
-        applicants=applicants
+        applicants=applicants,
+        job_id=job_id
     )
 
 @app.route("/admin/students")

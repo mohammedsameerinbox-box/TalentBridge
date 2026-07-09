@@ -1,41 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Job | TalentBridge</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% block title %}Post New Job | TalentBridge{% endblock %}
 
-<div class="register-container">
+{% block content %}
 
-    <h1>Post a New Job</h1>
+<section class="py-5">
 
-    <form action="/post-job" method="POST">
+<div class="container">
 
-        <input type="text" name="company_name" placeholder="Company Name" required>
+<div class="row justify-content-center">
 
-        <input type="text" name="job_title" placeholder="Job Title" required>
+<div class="col-lg-8">
 
-        <input type="text" name="location" placeholder="Location" required>
+<div class="card shadow-lg border-0 rounded-4">
 
-        <input type="text" name="salary" placeholder="Salary" required>
+<div class="card-body p-5">
 
-        <input type="text" name="job_type" placeholder="Job Type (Full Time / Internship)" required>
+<div class="text-center mb-5">
 
-        <input type="text" name="experience" placeholder="Experience" required>
+<h2 class="fw-bold">
+<i class="fa-solid fa-briefcase text-primary"></i>
+Post a New Job
+</h2>
 
-        <textarea name="description" placeholder="Job Description" rows="6" required></textarea>
-
-        <textarea name="skills" placeholder="Required Skills" rows="4" required></textarea>
-
-        <button type="submit">Post Job</button>
-
-    </form>
+<p class="text-muted">
+Create a professional job listing to attract talented candidates.
+</p>
 
 </div>
 
-</body>
-</html>
+<form action="/post-job" method="POST">
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label fw-semibold">Company Name</label>
+
+<input type="text"
+class="form-control"
+name="company_name"
+placeholder="Google"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label fw-semibold">Job Title</label>
+
+<input type="text"
+class="form-control"
+name="job_title"
+placeholder="Software Engineer"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label fw-semibold">Location</label>
+
+<input type="text"
+class="form-control"
+name="location"
+placeholder="Bangalore"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label fw-semibold">Salary</label>
+
+<input type="text"
+class="form-control"
+name="salary"
+placeholder="₹8 LPA"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label fw-semibold">Job Type</label>
+
+<input type="text"
+class="form-control"
+name="job_type"
+placeholder="Full Time / Internship"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label fw-semibold">Experience</label>
+
+<input type="text"
+class="form-control"
+name="experience"
+placeholder="0-2 Years"
+required>
+
+</div>
+
+<div class="col-12 mb-4">
+
+<label class="form-label fw-semibold">Job Description</label>
+
+<textarea
+class="form-control"
+rows="5"
+name="description"
+placeholder="Describe the job role..."
+required></textarea>
+
+</div>
+
+<div class="col-12 mb-4">
+
+<label class="form-label fw-semibold">Required Skills</label>
+
+<textarea
+class="form-control"
+rows="4"
+name="skills"
+placeholder="Python, Flask, MySQL..."
+required></textarea>
+
+</div>
+
+<div class="col-12">
+
+<button type="submit"
+class="btn btn-primary w-100 rounded-pill py-3">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Post Job
+
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

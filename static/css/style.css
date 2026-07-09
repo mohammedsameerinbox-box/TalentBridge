@@ -637,3 +637,20 @@ section{
     color:#6b7280;
     margin:0;
 }
+.form-control{
+    height:52px;
+    border-radius:12px;
+}
+
+textarea.form-control{
+    height:auto;
+}
+
+.form-control:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 .2rem rgba(37,99,235,.15);
+}
+
+.form-label{
+    font-weight:600;
+}
